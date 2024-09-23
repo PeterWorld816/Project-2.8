@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>API Documentation</h1>
+
+    <h2>Users</h2>
+
+    <h3>Update User Info</h3>
+    <p><strong>Method:</strong> PUT /users/:id</p>
+    <p><strong>Description:</strong> Updates the user information (username, password, email, date of birth).</p>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+{
+  "username": "new_username",
+  "password": "new_password",
+  "email": "new_email@example.com",
+  "dateOfBirth": "1990-01-01"
+}
+    </pre>
+    <p><strong>Response:</strong></p>
+    <pre>
+{
+  "message": "User information updated successfully",
+  "user": {
+    "_id": "66d5f2fac4e74527382710c8",
+    "username": "new_username",
+    "email": "new_email@example.com",
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "birthday": "1995-08-10T00:00:00.000Z",
+    "favoriteMovies": []
+  }
+}
+    </pre>
+
+    <h3>Add Favorite Movie</h3>
+    <p><strong>Method:</strong> POST /users/:id/favorites/:movieId</p>
+    <p><strong>Description:</strong> Adds a movie to the user's list of favorites.</p>
+    <p><strong>Response:</strong></p>
+    <pre>
+{
+  "message": "Movie added to favorites",
+  "user": {
+    "_id": "66d5f2fac4e74527382710c8",
+    "favoriteMovies": [
+      "66d5f344c4e74527382710cb"
+    ]
+  }
+}
+    </pre>
+
+    <h3>Remove Favorite Movie</h3>
+    <p><strong>Method:</strong> DELETE /users/:id/favorites/:movieId</p>
+    <p><strong>Description:</strong> Removes a movie from the user's list of favorites.</p>
+    <p><strong>Response:</strong></p>
+    <pre>
+{
+  "message": "Movie removed from favorites",
+  "user": {
+    "_id": "66d5f2fac4e74527382710c8",
+    "favoriteMovies": []
+  }
+}
+    </pre>
+
+    <h3>Deregister User</h3>
+    <p><strong>Method:</strong> DELETE /users/:id</p>
+    <p><strong>Description:</strong> Deletes the user account.</p>
+    <p><strong>Response:</strong></p>
+    <pre>
+{
+  "message": "User deregistered successfully"
+}
+    </pre>
+
+    <h2>Movies</h2>
+
+    <h3>Get All Movies</h3>
+    <p><strong>Method:</strong> GET /movies</p>
+    <p><strong>Description:</strong> Retrieves a list of all movies.</p>
+    <p><strong>Response:</strong></p>
+    <pre>
+[
+  {
+    "_id": "66edf877c7f419761a2710bc",
+    "title": "Parasite",
+    "description": "A poor family schemes to become employed by a wealthy family.",
+    "genre": {
+      "name": "Thriller",
+      "description": "A genre characterized by excitement, suspense, and high levels of tension."
+    },
+    "director": {
+      "name": "Bong Joon-ho",
+      "bio": "A South Korean film director known for blending genres and social commentary.",
+      "birthYear": 1969,
+      "deathYear": null
+    },
+    "imageUrl": "https://example.com/image1.jpg",
+    "featured": true
+  }
+]
+    </pre>
+
+    <h3>Get Single Movie by Title</h3>
+    <p><strong>Method:</strong> GET /movies/:title</p>
+    <p><strong>Description:</strong> Retrieves data about a single movie by its title.</p>
+    <p><strong>Response:</strong></p>
+    <pre>
+{
+  "_id": "66edf877c7f419761a2710bd",
+  "title": "Snowpiercer",
+  "description": "In a future where the earth is frozen, the last survivors live on a train.",
+  "genre": {
+    "name": "Science Fiction",
+    "description": "A genre that deals with imaginative and futuristic concepts."
+  },
+  "director": {
+    "name": "Bong Joon-ho",
+    "bio": "A South Korean film director known for blending genres and social commentary.",
+    "birthYear": 1969,
+    "deathYear": null
+  },
+  "imageUrl": "https://example.com/image2.jpg",
+  "featured": false
+}
+    </pre>
+
+</body>
+
+</html>
