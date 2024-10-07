@@ -72,20 +72,21 @@
   <p><strong>Example Response:</strong></p>
   <pre><code>[
   {
-    "title": "Inception",
-    "description": "A mind-bending thriller.",
-    "genre": {
-      "name": "Sci-Fi",
-      "description": "Science Fiction"
-    },
-    "director": {
-      "name": "Christopher Nolan",
-      "bio": "British-American film director",
-      "birthYear": 1970,
-      "deathYear": null
-    },
-    "imageUrl": "http://example.com/inception.jpg",
-    "featured": true
+      "genre": {
+          "name": "Thriller",
+          "description": "A genre characterized by excitement, suspense, and high levels of tension."
+      },
+      "director": {
+          "name": "Bong Joon-ho",
+          "bio": "A South Korean film director known for blending genres and social commentary.",
+          "birthYear": 1969,
+          "deathYear": null
+      },
+      "_id": "66edf877c7f419761a2710bc",
+      "title": "Parasite",
+      "description": "A poor family schemes to become employed by a wealthy family.",
+      "imageUrl": "https://example.com/image1.jpg",
+      "featured": true
   }
 ]</code></pre>
   <p><strong>Status Codes:</strong></p>
@@ -106,22 +107,25 @@
   <p><strong>Example Request:</strong></p>
   <pre><code>GET http://localhost:3000/movies/Inception</code></pre>
   <p><strong>Example Response:</strong></p>
-  <pre><code>{
-  "title": "Inception",
-  "description": "A mind-bending thriller.",
-  "genre": {
-    "name": "Sci-Fi",
-    "description": "Science Fiction"
-  },
-  "director": {
-    "name": "Christopher Nolan",
-    "bio": "British-American film director",
-    "birthYear": 1970,
-    "deathYear": null
-  },
-  "imageUrl": "http://example.com/inception.jpg",
-  "featured": true
-}</code></pre>
+  <pre><code>
+    {
+      "genre": {
+          "name": "Thriller",
+          "description": "A genre characterized by excitement, suspense, and high levels of tension."
+      },
+      "director": {
+          "name": "Bong Joon-ho",
+          "bio": "A South Korean film director known for blending genres and social commentary.",
+          "birthYear": 1969,
+          "deathYear": null
+      },
+      "_id": "66edf877c7f419761a2710bc",
+      "title": "Parasite",
+      "description": "A poor family schemes to become employed by a wealthy family.",
+      "imageUrl": "https://example.com/image1.jpg",
+      "featured": true
+  }
+</code></pre>
   <p><strong>Status Codes:</strong></p>
   <ul>
     <li>200 OK: Movie found.</li>
@@ -141,10 +145,12 @@
   <p><strong>Example Request:</strong></p>
   <pre><code>GET http://localhost:3000/genres/Sci-Fi</code></pre>
   <p><strong>Example Response:</strong></p>
-  <pre><code>{
-  "name": "Sci-Fi",
-  "description": "Science Fiction genre."
-}</code></pre>
+  <pre><code>
+    {
+      "name": "Thriller",
+      "description": "A genre characterized by excitement, suspense, and high levels of tension."
+  }
+  </code></pre>
   <p><strong>Status Codes:</strong></p>
   <ul>
     <li>200 OK: Genre found.</li>
@@ -164,12 +170,14 @@
   <p><strong>Example Request:</strong></p>
   <pre><code>GET http://localhost:3000/directors/Christopher Nolan</code></pre>
   <p><strong>Example Response:</strong></p>
-  <pre><code>{
-  "name": "Christopher Nolan",
-  "bio": "British-American film director.",
-  "birthYear": 1970,
-  "deathYear": null
-}</code></pre>
+  <pre><code>
+    {
+      "name": "Bong Joon-ho",
+      "bio": "A South Korean film director known for blending genres and social commentary.",
+      "birthYear": 1969,
+      "deathYear": null
+  }
+  </code></pre>
   <p><strong>Status Codes:</strong></p>
   <ul>
     <li>200 OK: Director found.</li>
@@ -182,22 +190,14 @@
   <p><strong>URL Path:</strong> `/users/register`</p>
   <p><strong>Description:</strong> Registers a new user.</p>
   <p><strong>Request Body:</strong></p>
-  <pre><code>{
-  "username": "JohnDoe",
-  "password": "password123!",
-  "email": "john.doe@example.com",
-  "dateOfBirth": "1990-06-21"
-}</code></pre>
-  <p><strong>Example Response:</strong></p>
-  <pre><code>{
-  "message": "User registered successfully",
-  "user": {
-    "_id": "60c72b1f4f1a4e3d20f7a68d",
-    "username": "JohnDoe",
-    "email": "john.doe@example.com",
-    "dateOfBirth": "1990-06-21T00:00:00.000Z"
-  }
-}</code></pre>
+  <pre><code>
+    {
+      "username": "johndoe5",
+      "password": "mypassword",
+      "email": "johndoe@example1.com",
+      "dateOfBirth": "1990-01-01"
+    }
+  </code></pre>
   <p><strong>Status Codes:</strong></p>
   <ul>
     <li>201 Created: User registered successfully.</li>
@@ -214,20 +214,24 @@
     <li><strong>:id</strong> (string) — User ID to update.</li>
   </ul>
   <p><strong>Request Body:</strong></p>
-  <pre><code>{
-  "username": "JohnDoeUpdated",
-  "email": "john.updated@example.com"
-}</code></pre>
+  <pre><code>
+    {
+    "username": "newuser",
+    "password": "securepassword"
+    }
+  </code></pre>
   <p><strong>Example Response:</strong></p>
-  <pre><code>{
-  "message": "User updated successfully",
-  "user": {
-    "_id": "60c72b1f4f1a4e3d20f7a68d",
-    "username": "JohnDoeUpdated",
-    "email": "john.updated@example.com",
-    "dateOfBirth": "1990-06-21T00:00:00.000Z"
+  <pre><code>
+    {
+      "_id": "66f059d6cc0afee78db1f3b1",
+      "username": "newuser",
+      "password": "securepassword",
+      "email": "user@example.com",
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "favorites": [],
+      "__v": 0
   }
-}</code></pre>
+  </code></pre>
   <p><strong>Status Codes:</strong></p>
   <ul>
     <li>200 OK: User updated successfully.</li>
@@ -245,7 +249,8 @@
   </ul>
   <p><strong>Request Body:</strong></p>
   <pre><code>{
-  "movieId": "60c72b1f4f1a4e3d20f7a68f"
+  "UserID": "66f059d6cc0afee78db1f3b1"
+  "movieId": "66edf877c7f419761a2710bc"
 }</code></pre>
   <p><strong>Example Response:</strong></p>
   <pre><code>{
@@ -269,7 +274,7 @@
   </ul>
   <p><strong>Request Body:</strong> None</p>
   <p><strong>Example Request:</strong></p>
-  <pre><code>DELETE http://localhost:3000/users/60c72b1f4f1a4e3d20f7a68d/favorites/60c72b1f4f1a4e3d20f7a68f</code></pre>
+  <pre><code>DELETE http://localhost:3000/users/66f059d6cc0afee78db1f3b1/favorites/66edf877c7f419761a2710bc</code></pre>
   <p><strong>Example Response:</strong></p>
   <pre><code>{
   "message": "Movie removed from favorites"
@@ -280,6 +285,35 @@
     <li>404 Not Found: User or movie not found.</li>
     <li>500 Internal Server Error: Error in removing movie from favorites.</li>
   </ul>
+
+  <h2 id="deregister-user">9. Allow Existing Users to Deregister</h2>
+<p><strong>Method:</strong> DELETE</p>
+<p><strong>URL Path:</strong> `/users/:id`</p>
+<p><strong>Description:</strong> Deletes an existing user account from the database based on the provided user ID.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>:id</strong> (string) — The unique ID of the user to be deleted.</li>
+</ul>
+
+<p><strong>Request Body:</strong> None</p>
+
+<p><strong>Example Request:</strong></p>
+<pre><code>DELETE http://localhost:3000/users/66f059d6cc0afee78db1f3b1</code></pre>
+
+<p><strong>Example Response:</strong></p>
+<pre><code>{
+  "message": "User deregistered successfully"
+}</code></pre>
+
+<p><strong>Status Codes:</strong></p>
+<ul>
+  <li>200 OK: User was successfully deregistered.</li>
+  <li>404 Not Found: User with the specified ID was not found.</li>
+  <li>500 Internal Server Error: There was an error processing the request.</li>
+</ul>
+
+
 
 </body>
 </html>
